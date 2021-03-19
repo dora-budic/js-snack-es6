@@ -57,8 +57,8 @@ male.forEach((item,index) => {
   $('#male').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
 
   // Cambio il colore del fiocco in base all'opacity
-  let icons = $('#male li');
-  icons.children('i').eq(index).css('opacity', item.opacity);
+  let listElement = $('#male li');
+  listElement.children('i').eq(index).css('opacity', item.opacity);
 });
 
 console.log(male);
@@ -74,8 +74,8 @@ female.forEach((item, index) => {
 
   $('#female').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
 
-  let icons = $('#female li');
-  icons.children('i').eq(index).css('opacity', item.opacity);
+  let listElement = $('#female li');
+  listElement.children('i').eq(index).css('opacity', item.opacity);
 });
 
 console.log(female);
