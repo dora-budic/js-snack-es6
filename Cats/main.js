@@ -34,17 +34,29 @@ const cats = [
 ];
 
 // Stampare gli oggetti - colore, nome
-cats.forEach((item) => {
-  $('#cats').append(`<li>${item.name} has ${item.color} fur.</li>`);
-});
+// cats.forEach((item) => {
+//   $('#cats').append(`<li>${item.name} has ${item.color} fur.</li>`);
+// });
 
 
 // MILESTONE 2
+// Aggiungere a fianco un fiocco colorato
+cats.forEach((item) => {
+  let color;
+  if (item.sex == 'Male') {
+    color = 'blue';
+  } else {
+    color = 'pink';
+  }
+  $('#cats').append(`<li class="${color}">${item.name} has ${item.color} fur.<i class="fas fa-ribbon"></i></li>`);
+});
+
 // Dividere gli oggetti in 2 array in base al sesso
 const male = cats.filter((item) => item.sex == 'Male');
 const female = cats.filter((item) => item.sex == 'Female');
 
-// Aggiungere opacity ad ogni oggetto, aggiungere a fianco un fiocco colorato
+
+// Aggiungere opacity ad ogni oggetto
 male.forEach((item,index) => {
   if (item.age < 10) {
     item['opacity'] = item.age / 10;
@@ -54,7 +66,7 @@ male.forEach((item,index) => {
     item['opacity'] = 1;
   }
 
-  $('#male').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
+  $('#male').append(`<li class="blue">${item.name}<i class="fas fa-ribbon"></i></li>`);
 
   // Cambio il colore del fiocco in base all'opacity
   let listElement = $('#male li');
@@ -72,7 +84,7 @@ female.forEach((item, index) => {
     item['opacity'] = 1;
   }
 
-  $('#female').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
+  $('#female').append(`<li class="pink">${item.name}<i class="fas fa-ribbon"></i></li>`);
 
   let listElement = $('#female li');
   listElement.children('i').eq(index).css('opacity', item.opacity);

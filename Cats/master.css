@@ -4,14 +4,15 @@ ul li {
   margin: 5px 0;
 }
 
-ul#male li i {
+ul li i {
   margin-left: 10px;
   font-size: 20px;
+}
+
+.blue i {
   color: #317CFF;
 }
 
-ul#female li i {
-  margin-left: 10px;
-  font-size: 20px;
+.pink i {
   color: #FE60DF;
 }
