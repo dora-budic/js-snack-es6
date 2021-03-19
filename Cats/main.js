@@ -35,16 +35,17 @@ const cats = [
 
 // Stampare gli oggetti - colore, nome
 cats.forEach((item) => {
-  $('#cats').append(`<li>${item.name} has ${item.color} fur.</li>`)
+  $('#cats').append(`<li>${item.name} has ${item.color} fur.</li>`);
 });
 
+
 // MILESTONE 2
-// Dividere gli oggetti in 2 array in base al sesso, aggiungere a fianco un fiocco colorato
+// Dividere gli oggetti in 2 array in base al sesso
 const male = cats.filter((item) => item.sex == 'Male');
 const female = cats.filter((item) => item.sex == 'Female');
 
-// Aggiungere opacity ad ogni oggetto e colorare il fiocco in base a quel opacity
-male.forEach((item) => {
+// Aggiungere opacity ad ogni oggetto, aggiungere a fianco un fiocco colorato
+male.forEach((item,index) => {
   if (item.age < 10) {
     item['opacity'] = item.age / 10;
   } else if (item.age > 10 && item.age < 15) {
@@ -52,12 +53,17 @@ male.forEach((item) => {
   } else {
     item['opacity'] = 1;
   }
-  $('#male').append(`<li>${item.name}<i class="fas fa-ribbon" style="opacity: ${item.opacity}"></i></li>`);
+
+  $('#male').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
+
+  // Cambio il colore del fiocco in base all'opacity
+  let icons = $('#male li');
+  icons.children('i').eq(index).css('opacity', item.opacity);
 });
 
 console.log(male);
 
-female.forEach((item) => {
+female.forEach((item, index) => {
   if (item.age < 10) {
     item['opacity'] = item.age / 10;
   } else if (item.age > 10 && item.age < 15) {
@@ -65,7 +71,11 @@ female.forEach((item) => {
   } else {
     item['opacity'] = 1;
   }
-  $('#female').append(`<li>${item.name}<i class="fas fa-ribbon" style="opacity: ${item.opacity}"></i></li>`);
+
+  $('#female').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
+
+  let icons = $('#female li');
+  icons.children('i').eq(index).css('opacity', item.opacity);
 });
 
 console.log(female);
