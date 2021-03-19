@@ -3,13 +3,13 @@
 const cats = [
   {
     name: 'Duchess',
-    age: 10,
+    age: 12,
     color: 'white',
     sex: 'Female'
   },
   {
     name: "Thomas O'Malley",
-    age: 12,
+    age: 16,
     color: 'brown',
     sex: 'Male'
   },
@@ -43,23 +43,32 @@ cats.forEach((item) => {
 const male = cats.filter((item) => item.sex == 'Male');
 const female = cats.filter((item) => item.sex == 'Female');
 
+// Aggiungere opacity ad ogni oggetto e colorare il fiocco in base a quel opacity
 male.forEach((item) => {
   if (item.age < 10) {
     item['opacity'] = item.age / 10;
+  } else if (item.age > 10 && item.age < 15) {
+    item['opacity'] = 0.95;
   } else {
     item['opacity'] = 1;
   }
-  $('#male').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`);
+  $('#male').append(`<li>${item.name}<i class="fas fa-ribbon" style="opacity: ${item.opacity}"></i></li>`);
 });
+
+console.log(male);
 
 female.forEach((item) => {
   if (item.age < 10) {
     item['opacity'] = item.age / 10;
+  } else if (item.age > 10 && item.age < 15) {
+    item['opacity'] = 0.95;
   } else {
     item['opacity'] = 1;
   }
-  $('#female').append(`<li>${item.name}<i class="fas fa-ribbon"></i></li>`)
+  $('#female').append(`<li>${item.name}<i class="fas fa-ribbon" style="opacity: ${item.opacity}"></i></li>`);
 });
+
+console.log(female);
 
 // MILESTONE 3
 // Creo array con prima i gatti femmina e poi i gatti maschio
