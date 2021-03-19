@@ -1,0 +1,17 @@
+ul li {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+ul#male li i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #317CFF;
+}
+
+ul#female li i {
+  margin-left: 10px;
+  font-size: 30px;
+  color: #FE60DF;
+}
